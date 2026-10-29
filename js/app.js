@@ -64,6 +64,27 @@
     }
   }
 
+
+  /* Hero con video: franjas de cine que se abren, sonido opcional, pausa fuera de pantalla */
+  const hf = $('#heroFilm'), hv = $('#heroVideo'), hs = $('#heroSnd');
+  if (hf && hv) {
+    const open = () => hf.classList.add('open');
+    if (reduce) { hv.removeAttribute('autoplay'); hv.pause(); open(); }
+    else {
+      hv.addEventListener('playing', () => setTimeout(open, 150), { once: true });
+      setTimeout(open, 1200);
+      hv.play().catch(open);
+      if ('IntersectionObserver' in window) new IntersectionObserver(([en]) => {
+        if (en.isIntersecting) hv.play().catch(() => {}); else hv.pause();
+      }, { threshold: 0.15 }).observe(hf);
+    }
+    if (hs) hs.addEventListener('click', () => {
+      hv.muted = !hv.muted; hs.setAttribute('aria-pressed', String(!hv.muted));
+      hs.textContent = hv.muted ? 'Activar sonido' : 'Silenciar';
+      if (!hv.muted) { $$('.clip video').forEach(o => { o.muted = true; }); hv.play().catch(() => {}); }
+    });
+  }
+
   /* Timecode a 24 fps */
   const tc = $('#tc');
   if (tc) {
@@ -122,7 +143,7 @@
       }), { threshold: 0.35 });
       clips.forEach(c => io.observe(c));
     }
-    $$('.snd').forEach(b => b.addEventListener('click', () => {
+    $$('.clip .snd').forEach(b => b.addEventListener('click', () => {
       const v = b.closest('.clip').querySelector('video');
       v.muted = !v.muted; b.setAttribute('aria-pressed', String(!v.muted));
       b.textContent = v.muted ? 'Activar sonido' : 'Silenciar';

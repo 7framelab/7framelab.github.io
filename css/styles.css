@@ -275,3 +275,54 @@ noscript .ns{display:block;padding:12px var(--gutter-r) 12px var(--gutter);backg
   .motion-grid{grid-template-columns:1fr}
   .clip.tall{grid-column:auto;grid-row:auto;aspect-ratio:9/16;max-width:360px;width:100%;justify-self:center}
 }
+
+/* Hero cinematográfico con video */
+.hero-film{position:relative;min-height:clamp(560px,86vh,920px);display:flex;align-items:stretch;overflow:hidden;background:#000;isolation:isolate}
+.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-3;transform:scale(1.04);animation:push 22s ease-out forwards}
+@keyframes push{to{transform:scale(1.12)}}
+.hero-shade{position:absolute;inset:0;z-index:-2;background:
+  linear-gradient(90deg,rgba(8,9,10,.86) 0%,rgba(8,9,10,.55) 42%,rgba(8,9,10,.08) 75%),
+  linear-gradient(0deg,rgba(13,14,16,1) 0%,rgba(13,14,16,0) 32%)}
+.matte{position:absolute;left:0;right:0;height:50%;background:#000;z-index:2;transition:height 1.4s cubic-bezier(.7,0,.2,1)}
+.matte.top{top:0}.matte.bottom{bottom:0}
+.hero-film.open .matte{height:5.5%}
+.hero-vf{position:absolute;inset:calc(5.5% + 18px) max(18px,env(safe-area-inset-right,0px)) calc(5.5% + 18px) max(18px,env(safe-area-inset-left,0px));z-index:1;pointer-events:none;color:rgba(255,255,255,.88);display:flex;justify-content:space-between;align-items:flex-start;opacity:0;transition:opacity .8s .9s}
+.hero-film.open .hero-vf{opacity:1}
+.hero-vf .rec{display:inline-flex;align-items:center;gap:8px}
+.hero-vf .rec i{width:9px;height:9px;border-radius:50%;background:var(--rec);animation:blink 1.2s steps(2) infinite}
+.hero-vf .corner{position:absolute;width:22px;height:22px;border:1.5px solid rgba(255,255,255,.7)}
+.hero-vf .tl{top:30px;left:0;border-right:0;border-bottom:0}.hero-vf .tr{top:30px;right:0;border-left:0;border-bottom:0}
+.hero-vf .bl{bottom:0;left:0;border-right:0;border-top:0}.hero-vf .br{bottom:0;right:0;border-left:0;border-top:0}
+.hero-inner{position:relative;z-index:3;display:flex;flex-direction:column;justify-content:flex-end;gap:44px;width:100%;padding-block:clamp(110px,14vh,170px) calc(5.5% + 34px)}
+.hero-film .hero-copy{display:grid;gap:24px;max-width:760px;opacity:0;transform:translateY(18px);transition:opacity 1s .7s,transform 1s .7s}
+.hero-film.open .hero-copy{opacity:1;transform:none}
+.hero-film h1{font-size:var(--s-3xl);font-stretch:125%;font-weight:900;text-shadow:0 2px 30px rgba(0,0,0,.35)}
+.hero-film h1 em{font-style:normal;color:transparent;-webkit-text-stroke:1.5px var(--paper)}
+.hero-film .lede{font-size:var(--s-lg);line-height:1.4;max-width:32ch}
+.hero-film .lede span{color:#c9c4ba}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px}
+.btn.ghost{background:rgba(13,14,16,.35);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.hero-foot{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;color:#c9c4ba}
+.hero-foot .credit{display:inline-flex;align-items:center;gap:12px;flex-wrap:wrap}
+@media (max-width:760px){
+  .hero-film{min-height:clamp(560px,92vh,820px)}
+  .hero-shade{background:linear-gradient(0deg,rgba(13,14,16,1) 0%,rgba(13,14,16,.78) 45%,rgba(13,14,16,.25) 100%)}
+  .hero-film.open .matte{height:3.5%}
+  .hero-vf{inset:calc(3.5% + 14px) 16px calc(3.5% + 14px) 16px}
+  .hero-foot{justify-content:flex-start}
+}
+@media (prefers-reduced-motion:reduce){.hero-bg{animation:none;transform:none}.matte{height:5.5%}.hero-vf,.hero-film .hero-copy{opacity:1;transform:none}}
+
+/* En movimiento: dos piezas a la misma altura */
+.motion-grid{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-rows:none;gap:16px}
+.clip.wide{aspect-ratio:auto;height:clamp(300px,40vw,560px)}
+.clip.tall{grid-column:auto;grid-row:auto;height:clamp(300px,40vw,560px);aspect-ratio:9/16}
+@media (max-width:760px){
+  .motion-grid{grid-template-columns:1fr}
+  .clip.wide{height:auto;aspect-ratio:4/3}
+  .clip.tall{height:auto;max-width:360px;width:100%;justify-self:center}
+}
+/* Ajustes: titular del hero proporcionado a la pantalla y recorte de las franjas negras del video de moda */
+.hero-film h1{font-size:clamp(2.6rem,min(7.2vw,11vh),7rem)}
+.hero-inner{padding-block:clamp(72px,9vh,120px) calc(5.5% + 30px);gap:34px}
+.clip.wide video{transform:scale(1.36)}
