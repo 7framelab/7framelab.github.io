@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /
+
+# Rastreadores de entrenamiento de IA: no autorizados a usar las imágenes del estudio
+User-agent: GPTBot
+Disallow: /
+User-agent: CCBot
+Disallow: /
+User-agent: Google-Extended
+Disallow: /
+User-agent: anthropic-ai
+Disallow: /
+User-agent: ClaudeBot
+Disallow: /
+User-agent: Bytespider
+Disallow: /
