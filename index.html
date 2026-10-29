@@ -120,21 +120,43 @@
     <div class="motion" id="video">
       <div class="motion-head">
         <h3>En <strong>movimiento</strong></h3>
-        <span class="mono muted">Toca un video para pausarlo</span>
+        <span class="mono muted">Toca un video para verlo completo, con sonido</span>
       </div>
-      <div class="motion-grid">
-        <figure class="clip wide">
-          <video src="video/turismo.mp4" poster="video/turismo.jpg" muted loop playsinline preload="metadata" aria-label="Video de turismo: finca con piscina, spa y paisaje de montaña"></video>
-          <figcaption class="mono"><span>Turismo · Hospitalidad</span><button class="snd" type="button" aria-pressed="false">Activar sonido</button></figcaption>
-        </figure>
-        <figure class="clip wide lb">
-          <video src="video/moda-bn.mp4" poster="video/moda-bn.jpg" muted loop playsinline preload="metadata" aria-label="Video editorial de moda en blanco y negro con gafas de sol"></video>
-          <figcaption class="mono"><span>Moda · Editorial B/N</span><span>Accesorios</span></figcaption>
-        </figure>
-        <figure class="clip tall">
-          <video src="video/nocturno.mp4" poster="video/nocturno.jpg" muted loop playsinline preload="metadata" aria-label="Retrato nocturno vertical con luces desenfocadas"></video>
-          <figcaption class="mono"><span>Retrato · Noche</span><span>9:16</span></figcaption>
-        </figure>
+      <div class="reels">
+        <button class="vcard tall" type="button" data-full="video/dj-set.mp4" data-title="DJ · Set en vivo" aria-label="Ver video completo: DJ · Set en vivo">
+          <video src="video/dj-set-prev.mp4" poster="video/dj-set.jpg" muted loop playsinline preload="none"></video>
+          <span class="vcap mono"><span>DJ · Set en vivo</span><span class="play" aria-hidden="true">▶</span></span>
+        </button>
+        <button class="vcard tall" type="button" data-full="video/dj-multicam.mp4" data-title="DJ · Multicámara" aria-label="Ver video completo: DJ · Multicámara">
+          <video src="video/dj-multicam-prev.mp4" poster="video/dj-multicam.jpg" muted loop playsinline preload="none"></video>
+          <span class="vcap mono"><span>DJ · Multicámara</span><span class="play" aria-hidden="true">▶</span></span>
+        </button>
+        <button class="vcard tall" type="button" data-full="video/dj-cabina.mp4" data-title="Artista · Cabina" aria-label="Ver video completo: Artista · Cabina">
+          <video src="video/dj-cabina-prev.mp4" poster="video/dj-cabina.jpg" muted loop playsinline preload="none"></video>
+          <span class="vcap mono"><span>Artista · Cabina</span><span class="play" aria-hidden="true">▶</span></span>
+        </button>
+        <button class="vcard tall" type="button" data-full="video/marca-belleza.mp4" data-title="Marca · Belleza" aria-label="Ver video completo: Marca · Belleza">
+          <video src="video/marca-belleza-prev.mp4" poster="video/marca-belleza.jpg" muted loop playsinline preload="none"></video>
+          <span class="vcap mono"><span>Marca · Belleza</span><span class="play" aria-hidden="true">▶</span></span>
+        </button>
+        <button class="vcard tall" type="button" data-full="video/marca-fintech.mp4" data-title="Marca · Fintech" aria-label="Ver video completo: Marca · Fintech">
+          <video src="video/marca-fintech-prev.mp4" poster="video/marca-fintech.jpg" muted loop playsinline preload="none"></video>
+          <span class="vcap mono"><span>Marca · Fintech</span><span class="play" aria-hidden="true">▶</span></span>
+        </button>
+      </div>
+      <div class="wides">
+        <button class="vcard wide" type="button" data-full="video/turismo.mp4" data-title="Turismo · Hospitalidad" aria-label="Ver video completo: Turismo · Hospitalidad">
+          <video src="video/turismo.mp4" poster="video/turismo.jpg" muted loop playsinline preload="none"></video>
+          <span class="vcap mono"><span>Turismo · Hospitalidad</span><span class="play" aria-hidden="true">▶</span></span>
+        </button>
+        <button class="vcard wide lb" type="button" data-full="video/moda-bn.mp4" data-title="Moda · Editorial B/N" aria-label="Ver video completo: Moda · Editorial B/N">
+          <video src="video/moda-bn.mp4" poster="video/moda-bn.jpg" muted loop playsinline preload="none"></video>
+          <span class="vcap mono"><span>Moda · Editorial B/N</span><span class="play" aria-hidden="true">▶</span></span>
+        </button>
+        <button class="vcard wide" type="button" data-full="video/boda-bn.mp4" data-title="Social · Boda B/N" aria-label="Ver video completo: Social · Boda B/N">
+          <video src="video/boda-bn-prev.mp4" poster="video/boda-bn.jpg" muted loop playsinline preload="none"></video>
+          <span class="vcap mono"><span>Social · Boda B/N</span><span class="play" aria-hidden="true">▶</span></span>
+        </button>
       </div>
     </div>
     <p class="note">Más en <a href="https://www.instagram.com/7framelab/" target="_blank" rel="noopener noreferrer">@7framelab</a> en Instagram.</p>
@@ -283,6 +305,10 @@
   </div>
 </footer>
 
+<dialog id="vlb" class="vlb" aria-label="Video">
+  <video id="vlbVideo" controls playsinline preload="metadata"></video>
+  <div class="cap mono"><span id="vlbCap"></span><button id="vlbClose" type="button">Cerrar ✕</button></div>
+</dialog>
 <dialog id="lb">
   <img decoding="async" id="lbImg" alt="">
   <div class="cap mono"><span id="lbCap"></span><button id="lbClose" type="button">Cerrar ✕</button></div>

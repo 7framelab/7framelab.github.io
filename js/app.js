@@ -122,36 +122,33 @@
   }
 
 
-  /* Video: se reproduce sin sonido solo cuando está a la vista */
-  const clips = $$('.clip');
-  if (clips.length) {
-    const vids = clips.map(c => $('video', c));
-    const setState = (c, v) => c.classList.toggle('paused', v.paused);
-    clips.forEach((c, i) => {
-      const v = vids[i];
-      v.addEventListener('play', () => setState(c, v));
-      v.addEventListener('pause', () => setState(c, v));
-      c.addEventListener('click', e => {
-        if (e.target.closest('.snd')) return;
-        c.dataset.user = '1';
-        if (v.paused) v.play().catch(() => {}); else v.pause();
-      });
-      setState(c, v);
-    });
+  /* Video: vistas previas sin sonido cuando están a la vista; clic abre la versión completa */
+  const cards = $$('.vcard'), vlb = $('#vlb'), vlbV = $('#vlbVideo'), vlbCap = $('#vlbCap'), SAFE_VID = /^video\/[a-z0-9-]+\.mp4$/;
+  if (cards.length) {
+    const previews = cards.map(c => $('video', c));
     if (!reduce && 'IntersectionObserver' in window) {
       const io = new IntersectionObserver(entries => entries.forEach(en => {
         const v = en.target.querySelector('video');
-        if (en.isIntersecting) { if (en.target.dataset.user !== '1') v.play().catch(() => {}); }
-        else v.pause();
-      }), { threshold: 0.35 });
-      clips.forEach(c => io.observe(c));
+        if (en.isIntersecting && !(vlb && vlb.open)) v.play().catch(() => {}); else v.pause();
+      }), { threshold: 0.4 });
+      cards.forEach(c => io.observe(c));
     }
-    $$('.clip .snd').forEach(b => b.addEventListener('click', () => {
-      const v = b.closest('.clip').querySelector('video');
-      v.muted = !v.muted; b.setAttribute('aria-pressed', String(!v.muted));
-      b.textContent = v.muted ? 'Activar sonido' : 'Silenciar';
-      if (!v.muted) { vids.forEach(o => { if (o !== v) o.muted = true; }); const h = $('#heroVideo'), hb = $('#heroSnd'); if (h) { h.muted = true; } if (hb) { hb.setAttribute('aria-pressed', 'false'); hb.textContent = 'Activar sonido'; } v.play().catch(() => {}); }
+    const closeV = () => { if (!vlbV) return; vlbV.pause(); vlbV.removeAttribute('src'); vlbV.load(); };
+    cards.forEach(c => c.addEventListener('click', () => {
+      const full = c.dataset.full;
+      if (!vlb || !full || !SAFE_VID.test(full)) return;
+      previews.forEach(v => v.pause());
+      const hv0 = $('#heroVideo'); if (hv0) { hv0.muted = true; const hb = $('#heroSnd'); if (hb) { hb.setAttribute('aria-pressed', 'false'); hb.textContent = 'Activar sonido'; } }
+      vlbV.poster = $('video', c).getAttribute('poster') || '';
+      vlbV.src = full; vlbCap.textContent = c.dataset.title || '';
+      if (typeof vlb.showModal === 'function') vlb.showModal(); else vlb.setAttribute('open', '');
+      vlbV.play().catch(() => {});
     }));
+    if (vlb) {
+      $('#vlbClose').addEventListener('click', () => vlb.close());
+      vlb.addEventListener('click', e => { if (e.target === vlb) vlb.close(); });
+      vlb.addEventListener('close', closeV);
+    }
   }
 
   /* Laboratorio de color (aproximaciones con filtros CSS) */

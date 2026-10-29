@@ -437,3 +437,27 @@ h2 span,h2 strong{color:var(--paper)}
 @media (max-width:860px){.contact-simple{grid-template-columns:1fr}}
 footer .wrap{font-size:.6875rem;letter-spacing:.08em}
 @media (max-width:640px){.grid{columns:2;column-gap:10px}.shot{margin-bottom:10px}.frame-tag{flex-wrap:wrap}}
+
+/* En movimiento: muro de verticales + fila horizontal; clic abre versión completa */
+.reels{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px}
+.wides{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:16px}
+.vcard{position:relative;display:block;overflow:hidden;background:#000;border:0;padding:0;margin:0;cursor:pointer;color:#f3efe8;text-align:left}
+.vcard.tall{aspect-ratio:9/16}
+.vcard.wide{aspect-ratio:16/9}
+.vcard video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transition:transform 1.2s cubic-bezier(.2,.8,.2,1)}
+.vcard.lb video{transform:scale(1.34)}
+.vcard:hover video{transform:scale(1.04)}
+.vcard.lb:hover video{transform:scale(1.38)}
+.vcap{position:absolute;left:0;right:0;bottom:0;display:flex;justify-content:space-between;align-items:center;gap:8px;padding:44px 14px 12px;background:linear-gradient(transparent,rgba(0,0,0,.7));font-size:.6875rem}
+.vcap .play{width:28px;height:28px;border-radius:50%;border:1px solid rgba(255,255,255,.55);display:grid;place-items:center;font-size:9px;padding-left:2px;transition:background .3s,color .3s}
+.vcard:hover .vcap .play{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+.vcard:focus-visible{outline:2px solid var(--paper);outline-offset:3px}
+@media (max-width:1000px){.reels{grid-template-columns:repeat(3,minmax(0,1fr))}.wides{grid-template-columns:1fr 1fr}.wides .vcard:last-child{grid-column:1 / -1}}
+@media (max-width:640px){
+  .reels{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:10px;margin-right:calc(-1 * var(--gutter-r));padding-right:var(--gutter-r);scrollbar-width:none}
+  .reels::-webkit-scrollbar{display:none}
+  .reels .vcard{flex:0 0 62vw;scroll-snap-align:start}
+  .wides{grid-template-columns:1fr;gap:10px;margin-top:10px}
+}
+dialog.vlb{max-width:min(94vw,1200px);max-height:94vh}
+dialog.vlb video{display:block;max-width:100%;max-height:84vh;width:auto;margin:0 auto;background:#000}
