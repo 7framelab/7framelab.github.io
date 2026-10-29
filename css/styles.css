@@ -340,3 +340,100 @@ noscript .ns{display:block;padding:12px var(--gutter-r) 12px var(--gutter);backg
 .nav .wrap{padding-block:12px}
 @media (max-width:860px){.brand-mark{height:44px}.brand .wm{font-size:1.25rem}.brand{gap:10px}}
 @media (max-width:380px){.brand .wm{font-size:1.1rem}}
+
+/* =========================================================
+   MINIMAL PREMIUM: menos elementos, más aire, tipografía fina
+   con la palabra clave en negrita (como el logo: 7FRAME / LAB)
+   ========================================================= */
+body::after{opacity:.025}
+.frame{padding-block:clamp(96px,13vw,168px)}
+.frame-head{margin-bottom:clamp(40px,5vw,72px)}
+.frame-tag{font-size:.6875rem;letter-spacing:.16em;margin-bottom:22px}
+.frame-tag::before{width:20px;background:var(--line)}
+h1,h2,h3{font-weight:300;font-stretch:104%;letter-spacing:-.015em}
+h1 strong,h2 strong,h3 strong{font-weight:700}
+h2{font-size:clamp(2.1rem,4.6vw,3.9rem);line-height:1.02}
+h2 span,h2 strong{color:var(--paper)}
+.frame-head p,.manifesto-body p,.doc-intro p{color:var(--muted);font-size:1rem;line-height:1.7}
+
+/* Botones y enlaces */
+.btn{font-weight:500;padding:12px 22px;border-color:rgba(236,231,222,.35)}
+.btn.solid{background:var(--paper);border-color:var(--paper);color:var(--ink)}
+.btn.solid:hover{background:transparent;color:var(--paper)}
+.link-arrow{display:inline-flex;align-items:center;gap:10px;color:var(--paper);text-decoration:none;font-weight:500;font-size:var(--s-sm);padding:12px 4px}
+.link-arrow span{transition:transform .3s}
+.link-arrow:hover span{transform:translateX(5px)}
+.nav{background:color-mix(in srgb,var(--ink) 70%,transparent);border-bottom-color:rgba(42,44,48,.6)}
+.nav ul{gap:34px}
+.nav ul a{font-size:.8125rem;letter-spacing:.02em}
+.only-m{display:none}
+@media (max-width:860px){.only-m{display:list-item}}
+
+/* Hero: solo video, titular y una acción */
+.hero-film h1{font-size:clamp(2.6rem,min(6vw,10vh),5.8rem);font-stretch:104%;font-weight:300;line-height:1;text-shadow:none}
+.hero-film h1 strong{font-weight:700}
+.hero-film .lede{font-size:clamp(1.05rem,1.4vw,1.25rem);color:#d9d4ca;max-width:34ch}
+.hero-film .lede span{color:var(--paper)}
+.hero-film .eyebrow{color:#cfcac1;letter-spacing:.18em;font-size:.6875rem}
+.hero-film .hero-copy{gap:26px}
+.hero-actions{gap:22px;align-items:center}
+.hero-foot{justify-content:flex-end}
+.hero-shade{background:linear-gradient(90deg,rgba(8,9,10,.78) 0%,rgba(8,9,10,.42) 45%,rgba(8,9,10,.05) 78%),linear-gradient(0deg,rgba(13,14,16,1) 0%,rgba(13,14,16,0) 30%)}
+.snd{background:transparent;border-color:rgba(255,255,255,.3);color:#d9d4ca}
+.snd[aria-pressed="true"]{background:var(--paper);border-color:var(--paper);color:var(--ink)}
+
+/* Estudio */
+.manifesto{gap:clamp(48px,7vw,110px)}
+.manifesto h2{font-size:clamp(2.1rem,4.4vw,3.7rem)}
+.principles li{color:#d6d1c8;padding:16px 0}
+.principles li span{color:var(--muted)}
+.reason .stack .f1,.reason .stack .f2,.reason .stack .f3{border-width:1px}
+.reason-cap .mono{color:var(--muted)}
+.reason-cap b{font-weight:600}
+
+/* Trabajo: leyendas solo al pasar el cursor */
+.grid{column-gap:20px}
+.shot{margin-bottom:20px}
+@media (hover:hover){
+  .shot figcaption{opacity:0;transition:opacity .4s}
+  .shot:hover figcaption{opacity:1}
+}
+.motion{margin-top:clamp(72px,8vw,120px)}
+.motion-head h3{font-size:clamp(1.6rem,2.8vw,2.3rem);font-stretch:104%}
+.motion-grid{gap:20px}
+.clip figcaption{padding:40px 16px 14px}
+.note{margin-top:28px}
+
+/* Documental */
+.doc{background:var(--ink);border-block:0}
+.doc-intro blockquote{font-weight:300;font-stretch:104%}
+.doc-intro blockquote span{color:var(--paper);font-weight:700}
+.reel{gap:20px}
+
+/* Servicios */
+.service{padding:34px 0;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr) minmax(0,.7fr)}
+.service h3{font-weight:400;font-stretch:104%;font-size:clamp(1.35rem,2.2vw,1.85rem);transition:color .3s}
+.service:hover h3{color:var(--paper)}
+.service .for{color:var(--muted)}
+@media (max-width:860px){.service{grid-template-columns:1fr}}
+
+/* Proceso: sin cajas */
+.steps{gap:clamp(24px,3vw,48px)}
+.step{border:0;background:transparent;padding:26px 0 0;border-top:1px solid var(--line);gap:12px}
+.step .n{font-family:var(--f-mono);font-size:.75rem;font-weight:500;color:var(--tungsten);-webkit-text-stroke:0;letter-spacing:.12em}
+.step h3{font-weight:400;font-size:1.35rem}
+.step .out{border-top:0;padding-top:4px;color:var(--muted)}
+
+/* Looks */
+.looks{gap:clamp(40px,5vw,80px)}
+.viewer{border:0}
+
+/* Contacto */
+.contact{border-top:0}
+.contact h2{font-size:clamp(2.6rem,7vw,6rem);font-stretch:104%;font-weight:300}
+.contact-simple{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:clamp(40px,6vw,96px);margin-top:clamp(40px,5vw,72px);align-items:start}
+.contact-lede{color:var(--muted);font-size:1.0625rem;max-width:32ch;line-height:1.7}
+.channel .v{font-weight:400;font-stretch:104%}
+@media (max-width:860px){.contact-simple{grid-template-columns:1fr}}
+footer .wrap{font-size:.6875rem;letter-spacing:.08em}
+@media (max-width:640px){.grid{columns:2;column-gap:10px}.shot{margin-bottom:10px}.frame-tag{flex-wrap:wrap}}

@@ -159,16 +159,12 @@
     film: [
       ['Kodak Portra 400', 'sepia(.14) saturate(.92) contrast(.94) brightness(1.05)', 'linear-gradient(rgba(255,180,120,.10),rgba(255,200,160,.06))', 'soft-light'],
       ['Fuji Classic Chrome', 'saturate(.62) contrast(1.12) brightness(.98) hue-rotate(-6deg)', 'linear-gradient(rgba(40,70,80,.18),rgba(40,70,80,.10))', 'soft-light'],
-      ['CineStill 800T', 'saturate(1.08) contrast(1.08) hue-rotate(-14deg) brightness(.96)', 'radial-gradient(circle at 70% 30%,rgba(255,80,40,.18),rgba(20,60,140,.22))', 'soft-light'],
-      ['Kodak Gold 200', 'sepia(.22) saturate(1.2) contrast(1.02) brightness(1.04)', 'linear-gradient(rgba(255,190,60,.14),rgba(255,140,40,.08))', 'soft-light'],
       ['Kodak Tri-X 400', 'grayscale(1) contrast(1.35) brightness(.98)', 'none', 'normal']
     ],
     nineties: [
       ['Minilab', 'sepia(.18) saturate(1.1) contrast(.86) brightness(1.08)', 'linear-gradient(rgba(255,215,120,.16),rgba(255,215,120,.06))', 'soft-light'],
       ['Cross Process', 'saturate(1.55) contrast(1.22) hue-rotate(12deg)', 'linear-gradient(135deg,rgba(255,235,0,.22),rgba(0,170,200,.24))', 'overlay'],
-      ['Grunge Bleach', 'saturate(.38) contrast(1.32) brightness(.94)', 'linear-gradient(rgba(60,90,60,.18),rgba(60,90,60,.12))', 'soft-light'],
       ['Camcorder Hi8', 'blur(.5px) saturate(1.3) contrast(.88) brightness(1.06)', 'repeating-linear-gradient(0deg,rgba(0,0,0,.18) 0 1px,transparent 1px 3px)', 'normal'],
-      ['Fujicolor Verde', 'saturate(.95) contrast(1.04) hue-rotate(8deg)', 'linear-gradient(rgba(60,160,90,.14),rgba(60,160,90,.06))', 'soft-light']
     ]
   });
   const graded = $('#graded'), tint = $('#tint'), lookName = $('#lookName'), viewer = $('#viewer'), cut = $('#cut');

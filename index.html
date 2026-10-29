@@ -28,9 +28,9 @@
       <li><a href="#servicios">Servicios</a></li>
       <li><a href="#proceso">Proceso</a></li>
       <li><a href="#looks">Looks</a></li>
-      <li><a href="#contacto">Contacto</a></li>
+      <li class="only-m"><a href="#contacto">Contacto</a></li>
     </ul>
-    <a class="btn solid cta-top" href="#contacto">Cuéntanos tu idea</a>
+    <a class="btn cta-top" href="#contacto">Contacto</a>
     <button class="btn menu-btn" id="menuBtn" aria-expanded="false" aria-controls="menu">Menú</button>
   </div>
 </header>
@@ -42,34 +42,21 @@
   <div class="hero-shade" aria-hidden="true"></div>
   <div class="matte top" aria-hidden="true"></div>
   <div class="matte bottom" aria-hidden="true"></div>
-  <div class="hero-vf mono" aria-hidden="true">
-    <span class="rec"><i></i>REC</span>
-    <span data-tc>00:00:00:00</span>
-    <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
-  </div>
   <div class="wrap hero-inner">
     <div class="hero-copy">
       <p class="mono eyebrow">Estudio creativo audiovisual · Manizales, Colombia</p>
-      <h1>Tu marca, <em>bien</em> contada.</h1>
+      <h1>Tu marca, <strong>bien contada.</strong></h1>
       <p class="lede">Antes de prender una cámara, hacemos una pregunta. <span>¿Qué necesitas comunicar?</span></p>
       <div class="hero-actions">
         <a class="btn solid" href="#contacto">Empecemos un proyecto</a>
-        <a class="btn ghost" href="#trabajo">Ver el trabajo</a>
+        <a class="link-arrow" href="#trabajo">Ver el trabajo <span aria-hidden="true">→</span></a>
       </div>
     </div>
     <div class="hero-foot mono">
-      <span>Desliza ↓ · 7 frames</span>
-      <span class="credit">En pantalla: Turismo · Hospitalidad <button class="snd" id="heroSnd" type="button" aria-pressed="false">Activar sonido</button></span>
+      <button class="snd" id="heroSnd" type="button" aria-pressed="false">Activar sonido</button>
     </div>
   </div>
 </section>
-
-<div class="marquee" aria-hidden="true">
-  <div class="track">
-    <span>DJs</span><span>Podcast</span><span>Moda</span><span>Música</span><span>Marcas</span><span>Fitness</span><span>Documental</span><span>Turismo</span><span>Lifestyle</span><span>Gastronomía</span>
-    <span>DJs</span><span>Podcast</span><span>Moda</span><span>Música</span><span>Marcas</span><span>Fitness</span><span>Documental</span><span>Turismo</span><span>Lifestyle</span><span>Gastronomía</span>
-  </div>
-</div>
 
 <!-- ================= 01 ESTUDIO ================= -->
 <section class="frame" id="estudio">
@@ -77,18 +64,13 @@
     <p class="mono frame-tag"><b>Frame 01/07</b> Estudio</p>
     <div class="manifesto">
       <div class="manifesto-visual">
-        <h2>La imagen tiene que tener <span>una razón</span> para existir.</h2>
+        <h2>La imagen tiene que tener <strong>una razón</strong> para existir.</h2>
         <figure class="reason">
           <div class="stack closed" id="stack" aria-hidden="true">
             <figure class="f3"><img decoding="async" src="img/ig-trenzas.jpg" alt=""></figure>
             <figure class="f2"><img decoding="async" src="img/ig-sombrero.jpg" alt=""></figure>
             <figure class="f1">
               <img decoding="async" src="img/ig-panuelo.jpg" alt="">
-              <div class="vf mono">
-                <div class="row"><span class="rec"><i></i>REC</span><span data-tc>00:00:00:00</span></div>
-                <div class="corners"></div>
-                <div class="row"><span>ISO 800 · f/1.4</span><span>24 fps · 4:5</span></div>
-              </div>
             </figure>
           </div>
           <figcaption class="reason-cap">
@@ -111,11 +93,6 @@
         </ul>
       </div>
     </div>
-    <div class="figures">
-      <div><strong>6</strong><span>líneas de servicio, de la idea a la pieza publicada</span></div>
-      <div><strong>25</strong><span>looks de color propios, para foto y video</span></div>
-      <div><strong>1</strong><span>pregunta antes de grabar: qué necesitas comunicar</span></div>
-    </div>
   </div>
 </section>
 
@@ -125,13 +102,7 @@
     <div class="frame-head">
       <div>
         <p class="mono frame-tag"><b>Frame 02/07</b> Trabajo</p>
-        <h2>Lo que hemos contado</h2>
-      </div>
-      <div class="filters" role="group" aria-label="Filtrar trabajo">
-        <button class="chip" aria-pressed="true" data-f="all">Todo</button>
-        <button class="chip" aria-pressed="false" data-f="retrato">Retrato y moda</button>
-        <button class="chip" aria-pressed="false" data-f="artista">Artistas</button>
-        <button class="chip" aria-pressed="false" data-f="video">Video</button>
+        <h2>Lo que hemos <strong>contado</strong></h2>
       </div>
     </div>
     <div class="grid" id="grid">
@@ -148,7 +119,7 @@
     </div>
     <div class="motion" id="video">
       <div class="motion-head">
-        <h3>En movimiento</h3>
+        <h3>En <strong>movimiento</strong></h3>
         <span class="mono muted">Toca un video para pausarlo</span>
       </div>
       <div class="motion-grid">
@@ -179,7 +150,6 @@
       <p>Manizales, agosto de 2026. Después del terremoto salimos a registrar lo que las cifras no cuentan: las casas, las sillas, las vidas detenidas. Diez fotografías sobre usar el lente para servir.</p>
     </div>
   </div>
-  <div class="perfs" aria-hidden="true"></div>
   <div class="reel" tabindex="0" aria-label="Serie documental, desliza para ver las diez imágenes">
     <img decoding="async" src="img/doc-01.jpg" alt="Tener una cámara es tener una responsabilidad" loading="lazy">
     <img decoding="async" src="img/doc-02.jpg" alt="Manizales. Agosto, 2026" loading="lazy">
@@ -203,7 +173,7 @@
     <div class="frame-head">
       <div>
         <p class="mono frame-tag"><b>Frame 04/07</b> Servicios</p>
-        <h2>Qué hacemos</h2>
+        <h2>Qué <strong>hacemos</strong></h2>
       </div>
       <p>Cada servicio empieza por el mismo lugar: entender el problema de comunicación. El formato viene después.</p>
     </div>
@@ -224,7 +194,7 @@
     <div class="frame-head">
       <div>
         <p class="mono frame-tag"><b>Frame 05/07</b> Proceso</p>
-        <h2>Pensar antes de producir</h2>
+        <h2>Pensar antes de <strong>producir</strong></h2>
       </div>
       <p>Cuatro pasos, siempre en este orden. Así sabes qué recibes y cuándo.</p>
     </div>
@@ -243,7 +213,7 @@
     <div class="frame-head">
       <div>
         <p class="mono frame-tag"><b>Frame 06/07</b> Laboratorio de color</p>
-        <h2>Nuestros looks</h2>
+        <h2>Nuestros <strong>looks</strong></h2>
       </div>
       <p>Desarrollamos nuestras propias paletas inspiradas en película fotográfica y en la estética de los 90. Así foto y video de un mismo proyecto se ven igual.</p>
     </div>
@@ -284,27 +254,9 @@
 <section class="frame contact" id="contacto">
   <div class="wrap">
     <p class="mono frame-tag"><b>Frame 07/07</b> Contacto</p>
-    <h2>¿Qué necesitas <span>comunicar?</span></h2>
-    <div class="contact-grid">
-      <form class="brief" id="brief">
-        <span class="mono muted">Arma tu mensaje</span>
-        <div class="chips" role="group" aria-label="Tipo de proyecto" id="kinds">
-          <button type="button" class="chip" aria-pressed="false">Video de marca</button>
-          <button type="button" class="chip" aria-pressed="false">Fotografía</button>
-          <button type="button" class="chip" aria-pressed="false">Contenido para DJ o artista</button>
-          <button type="button" class="chip" aria-pressed="false">Podcast</button>
-          <button type="button" class="chip" aria-pressed="false">Evento</button>
-          <button type="button" class="chip" aria-pressed="false">Documental</button>
-        </div>
-        <label for="msg" class="mono muted">Cuéntanos en dos líneas</label>
-        <textarea id="msg" maxlength="1000" autocomplete="off" spellcheck="true" placeholder="Somos una marca de ropa en Manizales y queremos lanzar la colección de diciembre…"></textarea>
-        <div class="row">
-          <button class="btn solid" type="submit">Copiar mensaje</button>
-          <span class="status" id="status" role="status"></span>
-        </div>
-        <p class="note m0">Pégalo en un correo o en un DM y te respondemos.</p>
-        <p class="consent">Este mensaje no se envía ni se guarda: se arma en tu navegador y tú decides a quién mandarlo. Si nos escribes, tratamos tus datos según nuestros <a href="terminos.html">términos y condiciones</a>.</p>
-      </form>
+    <h2>¿Qué necesitas <strong>comunicar?</strong></h2>
+    <div class="contact-simple">
+      <p class="contact-lede">Cuéntanos tu idea. Respondemos con una primera lectura del proyecto.</p>
       <div class="channels">
         <div class="channel">
           <span class="mono">Correo</span>
@@ -312,7 +264,7 @@
         </div>
         <div class="channel">
           <span class="mono">Instagram</span>
-          <span class="v"><a href="https://www.instagram.com/7framelab/" target="_blank" rel="noopener noreferrer">@7framelab ↗</a></span>
+          <span class="v"><a href="https://www.instagram.com/7framelab/" target="_blank" rel="noopener noreferrer">@7framelab</a></span>
         </div>
         <div class="channel">
           <span class="mono">Base</span>
