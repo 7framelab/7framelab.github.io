@@ -48,10 +48,20 @@
   <div class="matte bottom" aria-hidden="true"></div>
   <div class="hero-vf mono" aria-hidden="true">
     <span class="rec"><i></i>REC</span>
-    <span id="tc">00:00:00:00</span>
+    <span data-tc>00:00:00:00</span>
     <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
   </div>
   <div class="wrap hero-inner">
+    <div class="hero-mark" aria-hidden="true">
+      <svg viewBox="0 0 64 64" fill="none">
+        <path class="fr fr3" pathLength="1" d="M24 6 L56 12 L58 48 L28 44 Z"/>
+        <path class="fr fr2" pathLength="1" d="M17 11 L50 16 L52 54 L20 50 Z"/>
+        <path class="fr fr1" pathLength="1" d="M8 17 L44 17 L44 52 L14 56 Z"/>
+        <path class="seven" pathLength="1" d="M20 26 H35 L26 46"/>
+      </svg>
+      <span class="wordmark"><b>7FRAME</b>LAB</span>
+      <span class="tagline mono">Creative Lab · Manizales</span>
+    </div>
     <div class="hero-copy">
       <p class="mono eyebrow">Estudio creativo audiovisual · Manizales, Colombia</p>
       <h1>Tu marca, <em>bien</em> contada.</h1>
@@ -80,7 +90,31 @@
   <div class="wrap">
     <p class="mono frame-tag"><b>Frame 01/07</b> Estudio</p>
     <div class="manifesto">
-      <h2>La imagen tiene que tener <span>una razón</span> para existir.</h2>
+      <div class="manifesto-visual">
+        <h2>La imagen tiene que tener <span>una razón</span> para existir.</h2>
+        <figure class="reason">
+          <div class="stack closed" id="stack" aria-hidden="true">
+            <figure class="f3"><img decoding="async" src="img/ig-trenzas.jpg" alt=""></figure>
+            <figure class="f2"><img decoding="async" src="img/ig-sombrero.jpg" alt=""></figure>
+            <figure class="f1">
+              <img decoding="async" src="img/ig-panuelo.jpg" alt="">
+              <div class="vf mono">
+                <div class="row"><span class="rec"><i></i>REC</span><span data-tc>00:00:00:00</span></div>
+                <div class="corners"></div>
+                <div class="row"><span>ISO 800 · f/1.4</span><span>24 fps · 4:5</span></div>
+              </div>
+            </figure>
+          </div>
+          <figcaption class="reason-cap">
+            <span class="mono">Antes de cada encuadre</span>
+            <ol>
+              <li><b>Qué</b> necesita decir la marca.</li>
+              <li><b>A quién</b> le habla.</li>
+              <li><b>Cómo</b> se ve para que funcione.</li>
+            </ol>
+          </figcaption>
+        </figure>
+      </div>
       <div class="manifesto-body">
         <p>7FrameLab es un estudio creativo audiovisual nacido en Colombia. Convertimos ideas, identidades y objetivos de comunicación en historias visuales, juntando estrategia, narrativa y producción.</p>
         <p>Trabajamos con marcas, artistas y emprendimientos que tienen algo que decir. Nuestro trabajo es encontrar la mejor manera de contarlo.</p>
@@ -133,6 +167,10 @@
       </div>
       <div class="motion-grid">
         <figure class="clip wide">
+          <video src="video/turismo.mp4" poster="video/turismo.jpg" muted loop playsinline preload="metadata" aria-label="Video de turismo: finca con piscina, spa y paisaje de montaña"></video>
+          <figcaption class="mono"><span>Turismo · Hospitalidad</span><button class="snd" type="button" aria-pressed="false">Activar sonido</button></figcaption>
+        </figure>
+        <figure class="clip wide lb">
           <video src="video/moda-bn.mp4" poster="video/moda-bn.jpg" muted loop playsinline preload="metadata" aria-label="Video editorial de moda en blanco y negro con gafas de sol"></video>
           <figcaption class="mono"><span>Moda · Editorial B/N</span><span>Accesorios</span></figcaption>
         </figure>

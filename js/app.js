@@ -45,7 +45,9 @@
   /* Hero: los marcos del logo se abren */
   const stack = $('#stack');
   if (stack) {
-    requestAnimationFrame(() => setTimeout(() => stack.classList.remove('closed'), reduce ? 0 : 250));
+    const openStack = () => stack.classList.remove('closed');
+    if (reduce || !('IntersectionObserver' in window)) openStack();
+    else { const so = new IntersectionObserver(([en]) => { if (en.isIntersecting) { setTimeout(openStack, 200); so.disconnect(); } }, { threshold: 0.35 }); so.observe(stack); }
     if (!reduce && matchMedia('(pointer: fine)').matches) {
       const figs = $$('figure', stack);
       const base = [[9, 9, -6], [4, 4, -3], [-3, 0, 0]];
@@ -81,17 +83,18 @@
     if (hs) hs.addEventListener('click', () => {
       hv.muted = !hv.muted; hs.setAttribute('aria-pressed', String(!hv.muted));
       hs.textContent = hv.muted ? 'Activar sonido' : 'Silenciar';
-      if (!hv.muted) { $$('.clip video').forEach(o => { o.muted = true; }); hv.play().catch(() => {}); }
+      if (!hv.muted) { $$('.clip video').forEach(o => { o.muted = true; }); $$('.clip .snd').forEach(b => { b.setAttribute('aria-pressed', 'false'); b.textContent = 'Activar sonido'; }); hv.play().catch(() => {}); }
     });
   }
 
   /* Timecode a 24 fps */
-  const tc = $('#tc');
-  if (tc) {
+  const tcs = $$('[data-tc]');
+  if (tcs.length) {
     const t0 = performance.now(), pad = n => String(n).padStart(2, '0');
     const tick = () => {
       const s = (performance.now() - t0) / 1000, f = Math.floor(s * 24) % 24, S = Math.floor(s);
-      tc.textContent = `${pad(Math.floor(S / 3600))}:${pad(Math.floor(S / 60) % 60)}:${pad(S % 60)}:${pad(f)}`;
+      const t = `${pad(Math.floor(S / 3600))}:${pad(Math.floor(S / 60) % 60)}:${pad(S % 60)}:${pad(f)}`;
+      tcs.forEach(el => { el.textContent = t; });
       if (!reduce) requestAnimationFrame(tick);
     };
     tick();
@@ -147,7 +150,7 @@
       const v = b.closest('.clip').querySelector('video');
       v.muted = !v.muted; b.setAttribute('aria-pressed', String(!v.muted));
       b.textContent = v.muted ? 'Activar sonido' : 'Silenciar';
-      if (!v.muted) { vids.forEach(o => { if (o !== v) o.muted = true; }); v.play().catch(() => {}); }
+      if (!v.muted) { vids.forEach(o => { if (o !== v) o.muted = true; }); const h = $('#heroVideo'), hb = $('#heroSnd'); if (h) { h.muted = true; } if (hb) { hb.setAttribute('aria-pressed', 'false'); hb.textContent = 'Activar sonido'; } v.play().catch(() => {}); }
     }));
   }
 
