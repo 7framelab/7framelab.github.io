@@ -97,6 +97,39 @@
     lb.addEventListener('click', e => { if (e.target === lb) lb.close(); });
   }
 
+
+  /* Video: se reproduce sin sonido solo cuando está a la vista */
+  const clips = $$('.clip');
+  if (clips.length) {
+    const vids = clips.map(c => $('video', c));
+    const setState = (c, v) => c.classList.toggle('paused', v.paused);
+    clips.forEach((c, i) => {
+      const v = vids[i];
+      v.addEventListener('play', () => setState(c, v));
+      v.addEventListener('pause', () => setState(c, v));
+      c.addEventListener('click', e => {
+        if (e.target.closest('.snd')) return;
+        c.dataset.user = '1';
+        if (v.paused) v.play().catch(() => {}); else v.pause();
+      });
+      setState(c, v);
+    });
+    if (!reduce && 'IntersectionObserver' in window) {
+      const io = new IntersectionObserver(entries => entries.forEach(en => {
+        const v = en.target.querySelector('video');
+        if (en.isIntersecting) { if (en.target.dataset.user !== '1') v.play().catch(() => {}); }
+        else v.pause();
+      }), { threshold: 0.35 });
+      clips.forEach(c => io.observe(c));
+    }
+    $$('.snd').forEach(b => b.addEventListener('click', () => {
+      const v = b.closest('.clip').querySelector('video');
+      v.muted = !v.muted; b.setAttribute('aria-pressed', String(!v.muted));
+      b.textContent = v.muted ? 'Activar sonido' : 'Silenciar';
+      if (!v.muted) { vids.forEach(o => { if (o !== v) o.muted = true; }); v.play().catch(() => {}); }
+    }));
+  }
+
   /* Laboratorio de color (aproximaciones con filtros CSS) */
   const LOOKS = Object.freeze({
     film: [
